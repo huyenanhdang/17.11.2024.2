@@ -48,19 +48,5 @@ int main() {
         printf("Khong co so chinh phuong tren hang %d.", K);
     }
     printf("\n");
-
-    for (int i = 0; i < M; i++) {
-        for (int j = 0; j < N; j++) {
-            matranchuyenvi[j][i] = arr[i][j];
-        }
-    }
-    printf("Ma tran chuyen vi:\n");
-    for (int i = 0; i < N; i++) {
-        for (int j = 0; j < M; j++) {
-            printf("%8.2f ", matranchuyenvi[i][j]);
-        }
-        printf("\n");
-    }
-
     return 0;
 }
