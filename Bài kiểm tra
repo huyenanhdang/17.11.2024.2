@@ -1,0 +1,66 @@
+#include <stdio.h>
+#include <math.h>
+
+int main() {
+    int M, N, K;
+    double arr[100][100], matranchuyenvi[100][100];
+
+    do {
+        printf("Nhap so hang M (M > 0): ");
+        scanf("%d", &M);
+    } while (M <= 0);
+
+    do {
+        printf("Nhap so cot N (N > 0): ");
+        scanf("%d", &N);
+    } while (N <= 0);
+
+    for (int i = 0; i < M; i++) {
+        for (int j = 0; j < N; j++) {
+            printf("Nhap phan tu arr[%d][%d]: ", i, j);
+            scanf("%lf", &arr[i][j]);
+        }
+    }
+
+    printf("Ma tran da nhap:\n");
+    for (int i = 0; i < M; i++) {
+        for (int j = 0; j < N; j++) {
+            printf("%8.2f ", arr[i][j]);
+        }
+        printf("\n");
+    }
+
+    do {
+        printf("Nhap so hang K (0 <= K < %d): ", M);
+        scanf("%d", &K);
+    } while (K < 0 || K >= M);
+
+    printf("Cac so chinh phuong tren hang %d: ", K);
+    int sochinhphuong = 0;
+    for (int j = 0; j < N; j++) {
+        double sqrtNum = sqrt(arr[K][j]);
+        if (sqrtNum == (int)sqrtNum) {
+            printf("%8.2f ", arr[K][j]);
+            sochinhphuong = 1;
+        }
+    }
+    if (!sochinhphuong) {
+        printf("Khong co so chinh phuong tren hang %d.", K);
+    }
+    printf("\n");
+
+    for (int i = 0; i < M; i++) {
+        for (int j = 0; j < N; j++) {
+            matranchuyenvi[j][i] = arr[i][j];
+        }
+    }
+    printf("Ma tran chuyen vi:\n");
+    for (int i = 0; i < N; i++) {
+        for (int j = 0; j < M; j++) {
+            printf("%8.2f ", matranchuyenvi[i][j]);
+        }
+        printf("\n");
+    }
+
+    return 0;
+}
